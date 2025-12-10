@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Computer Graphics Assignment</title>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <!-- Renderer settings improve clarity (fix blur) and color accuracy -->
+    <a-scene background="color: #87CEEB" renderer="antialias: true; colorManagement: true; highRefreshRate: true; physicallyCorrectLights: true;">
+      
+      <!-- Camera positioned for a good view of the table -->
+      <a-entity position="0 1.6 3">
+        <a-camera look-controls wasd-controls></a-camera>
+      </a-entity>
+      
+      <!-- Improved Lighting -->
+      <a-light type="ambient" color="#BBB" intensity="0.5"></a-light>
+      <a-light type="directional" position="-2 4 2" intensity="1" cast-shadow="true"></a-light>
+
+      <!-- Floor -->
+      <a-plane position="0 0 0" rotation="-90 0 0" width="20" height="20" color="#7BC8A4" shadow="receive: true"></a-plane>
+
+      <!-- TABLE GROUP (Centered) -->
+      <a-entity id="table" position="0 0 0">
+        <!-- Table Top (Radius 1.2m, standard height ~0.75m) -->
+        <a-cylinder position="0 0.75 0" radius="1.2" height="0.05" color="#8B4513" shadow="cast: true; receive: true"></a-cylinder>
+        <!-- Table Base/Pedestal (Single central leg style like the image) -->
+        <a-cylinder position="0 0.375 0" radius="0.15" height="0.75" color="#5D4037" shadow="cast: true; receive: true"></a-cylinder>
+        <!-- Table Foot -->
+        <a-cylinder position="0 0.025 0" radius="0.6" height="0.05" color="#8B4513" shadow="cast: true; receive: true"></a-cylinder>
+      </a-entity>
+
+      <!-- CHAIR 1 (Left) -->
+      <a-entity id="chair-1" position="-1.6 0 0" rotation="0 90 0">
+        <!-- Seat (Height ~0.45m) -->
+        <a-box position="0 0.45 0" width="0.5" height="0.05" depth="0.5" color="#CD853F" shadow="cast: true"></a-box>
+        <!-- Backrest -->
+        <a-box position="-0.22 0.9 0" width="0.05" height="0.9" depth="0.5" color="#CD853F" shadow="cast: true"></a-box>
+        <!-- Legs -->
+        <a-cylinder position="-0.2 0.225 -0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+        <a-cylinder position="0.2 0.225 -0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+        <a-cylinder position="-0.2 0.225 0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+        <a-cylinder position="0.2 0.225 0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+      </a-entity>
+
+      <!-- CHAIR 2 (Right) -->
+      <a-entity id="chair-2" position="1.6 0 0" rotation="0 -90 0">
+        <!-- Seat -->
+        <a-box position="0 0.45 0" width="0.5" height="0.05" depth="0.5" color="#CD853F" shadow="cast: true"></a-box>
+        <!-- Backrest -->
+        <a-box position="-0.22 0.9 0" width="0.05" height="0.9" depth="0.5" color="#CD853F" shadow="cast: true"></a-box>
+        <!-- Legs -->
+        <a-cylinder position="-0.2 0.225 -0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+        <a-cylinder position="0.2 0.225 -0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+        <a-cylinder position="-0.2 0.225 0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+        <a-cylinder position="0.2 0.225 0.2" radius="0.04" height="0.45" color="#8B4513"></a-cylinder>
+      </a-entity>
+
+      <!-- ITEMS ON TABLE (Sitting on top of y=0.75 + half their height) -->
+      
+      <!-- Milo Tin (Green) -->
+      <a-entity position="-0.3 0.775 0.3">
+         <!-- Body -->
+         <a-cylinder position="0 0.1 0" radius="0.08" height="0.2" color="#006400" shadow="cast: true"></a-cylinder> 
+         <!-- Silver Lid -->
+         <a-cylinder position="0 0.2 0" radius="0.082" height="0.02" color="#C0C0C0"></a-cylinder> 
+         <!-- Text label -->
+         <a-text value="MILO" color="white" align="center" position="0 0.1 0.085" width="1.5"></a-text>
+      </a-entity>
+
+      <!-- Milk Tin (White/Silver) -->
+      <a-entity position="0.3 0.775 -0.2">
+        <!-- Body -->
+        <a-cylinder position="0 0.08 0" radius="0.07" height="0.16" color="#F5F5F5" shadow="cast: true"></a-cylinder>
+        <!-- Rim -->
+        <a-cylinder position="0 0.16 0" radius="0.072" height="0.01" color="#C0C0C0"></a-cylinder>
+        <!-- Text label -->
+        <a-text value="MILK" color="blue" align="center" position="0 0.08 0.075" width="1.2"></a-text>
+      </a-entity>
+
+      <!-- Cup 1 -->
+      <a-cylinder position="0.4 0.825 0.3" radius="0.05" height="0.1" color="white" shadow="cast: true"></a-cylinder>
+
+      <!-- Cup 2 -->
+      <a-cylinder position="-0.2 0.825 -0.4" radius="0.05" height="0.1" color="white" shadow="cast: true"></a-cylinder>
+
+    </a-scene>
+  </body>
+</html>
